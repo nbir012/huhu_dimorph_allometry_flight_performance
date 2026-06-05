@@ -16,3 +16,23 @@
 *.txt
 *.ai
 *.emf
+# Image and binary formats not needed in repo
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.svg
+*.svgz
+*.itw
+*.RDS
+
+# Excel and other office formats (keep manuscript .docx via negation if needed)
+*.xlsx
+*.xls
+
+# ImageJ outputs
+CellCounter_*.xml
+
+# Old/backup data files
+*_old.RDS
+*_backup.*
