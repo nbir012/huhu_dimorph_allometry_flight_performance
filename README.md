@@ -6,6 +6,9 @@ R code accompanying:
 > allometry, and flight performance in the scramble competitor
 > *Prionoplus reticularis* White (Coleoptera: Cerambycidae).
 
+## Data availability
+The raw flight-mill CSV files, morphological measurements, and metadata required to run this pipeline are available from the corresponding author on request. Once received, place them in the data/ directory following the layout described below.
+
 ## Software
 
 - R (version 4.5.3; R Core Team, 2026)
