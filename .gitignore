@@ -1,0 +1,18 @@
+# History files
+.Rhistory
+.Rapp.history
+
+# Session data files
+.RData
+.RData-tmp
+
+# User-specific project files
+.Rproj.user/
+
+# Generated outputs and source data
+*.docx
+*.csv
+*.png
+*.txt
+*.ai
+*.emf
