@@ -35,6 +35,11 @@ set_flextable_defaults(
   padding = 3
 )
 
+# make landscape
+landscape <- officer::prop_section(
+  page_size = officer::page_size(orient = "landscape")
+)
+
 
 # ----------------------------------------------------------------------------
 # Trait label lookup — maps internal column names to display names, units,
@@ -44,16 +49,17 @@ set_flextable_defaults(
 trait_labels <- tibble::tribble(
   ~measurement          , ~label              , ~units     , ~order ,
   "lengthAntenna"       , "Antenna Length"    , "mm"       ,      1 ,
-  "lengthBodyTotal"     , "Body Length"       , "mm"       ,      2 ,
-  "widthPronotum"       , "Pronotum Width"    , "mm"       ,      3 ,
-  "lengthElytron"       , "Elytron Length"    , "mm"       ,      4 ,
-  "lengthFemur"         , "Femur Length"      , "mm"       ,      5 ,
-  "lengthTibia"         , "Tibia Length"      , "mm"       ,      6 ,
-  "lengthWing"          , "Wing Length"       , "mm"       ,      7 ,
-  "areaWing"            , "Wing Area"         , "mm\u00B2" ,      8 ,
-  "wing_aspect_ratio"   , "Wing Aspect Ratio" , "-"        ,      9 ,
-  "wing_loading_mg_mm2" , "Wing Loading"      , "-"        ,     10 ,
-  "weightStart_mg"      , "Body Mass"         , "mg"       ,     11
+  "lengthF9"            , "Length F9"         , "mm"       ,      2 ,
+  "lengthBodyTotal"     , "Body Length"       , "mm"       ,      3 ,
+  "widthPronotum"       , "Pronotum Width"    , "mm"       ,      4 ,
+  "lengthElytron"       , "Elytron Length"    , "mm"       ,      5 ,
+  "lengthFemur"         , "Femur Length"      , "mm"       ,      6 ,
+  "lengthTibia"         , "Tibia Length"      , "mm"       ,      7 ,
+  "lengthWing"          , "Wing Length"       , "mm"       ,      8 ,
+  "areaWing"            , "Wing Area"         , "mm\u00B2" ,      9 ,
+  "wing_aspect_ratio"   , "Wing Aspect Ratio" , "-"        ,     10 ,
+  "wing_loading_mg_mm2" , "Wing Loading"      , "-"        ,     11 ,
+  "weightStart_mg"      , "Body Mass"         , "mg"       ,     12
 )
 
 
@@ -103,6 +109,9 @@ t1_display <- t1_data |>
 
 # Which row is the female antenna sample (for the damaged-antennae footnote).
 antenna_row <- which(t1_display$label == "Antenna Length")
+f9_row <- which(grepl("F9", t1_display$label))
+wl_row <- which(t1_display$label == "Wing Loading")
+bm_row <- which(t1_display$label == "Body Mass")
 
 table1 <- t1_display |>
   flextable() |>
@@ -170,13 +179,24 @@ table1 <- t1_display |>
   ) |>
   bold(part = "header", i = 1) |>
   footnote(
-    i = antenna_row,
-    j = "f_n",
+    i = c(antenna_row, antenna_row, f9_row, f9_row),
+    j = c("m_n", "f_n", "m_n", "f_n"),
     value = as_paragraph(
-      "Both antennae were damaged in one female, so that individual was ",
-      "excluded from the antenna length analysis."
+      "Both antennae were damaged in some individuals so these were ",
+      "excluded from analysis."
     ),
     ref_symbols = "*",
+    part = "body"
+  ) |>
+  footnote(
+    i = c(wl_row, bm_row),
+    j = c("f_n", "f_n"),
+    value = as_paragraph(
+      "Body mass and wing loading were recorded only for the subset of females ",
+      "allocated to the flight-mill experiment (n = 13); all other female traits ",
+      "were measured on the full sample (n = 24)."
+    ),
+    ref_symbols = "\u2020",
     part = "body"
   ) |>
   add_footer_lines(
@@ -193,7 +213,8 @@ table1 <- t1_display |>
 
 save_as_docx(
   table1,
-  path = here::here("output", "tables", "table1_dimorphism.docx")
+  path = here::here("output", "tables", "table1_dimorphism.docx"),
+  pr_section = landscape
 )
 
 
@@ -324,7 +345,8 @@ table2 <- t2_display |>
 
 save_as_docx(
   table2,
-  path = here::here("output", "tables", "table2_allometry.docx")
+  path = here::here("output", "tables", "table2_allometry.docx"),
+  pr_section = landscape
 )
 
 
@@ -464,5 +486,6 @@ table3_fit <- t3_fit |>
 save_as_docx(
   `Table 3` = table3,
   `Table 3b` = table3_fit,
-  path = here::here("output", "tables", "table3_flight_glm.docx")
+  path = here::here("output", "tables", "table3_flight_glm.docx"),
+  pr_section = landscape
 )

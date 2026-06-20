@@ -118,7 +118,7 @@ df_allometry_long_PW <- allometrySlopeWide |>
 # ----------------------------------------------------------------------------
 
 dimorph_summary_table <- df_allometry_long |>
-  filter(!grepl("^(lengthF[1-9]|lengthPedicel|lengthScape)$", measurement)) |>
+  filter(!grepl("^(lengthF[1-8]|lengthPedicel|lengthScape)$", measurement)) |>
   group_by(sex, measurement) |>
   drop_na(mm) |>
   summarise(
@@ -138,7 +138,7 @@ write.csv(
 )
 
 dimorph_stats_table <- df_allometry_long |>
-  filter(!grepl("^(lengthF[1-9]|lengthPedicel|lengthScape)$", measurement)) |>
+  filter(!grepl("^(lengthF[1-8]|lengthPedicel|lengthScape)$", measurement)) |>
   group_by(measurement) |>
   rstatix::t_test(mm ~ sex) |>
   rstatix::adjust_pvalue(method = "BH") |>
