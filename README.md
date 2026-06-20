@@ -9,7 +9,7 @@ R code accompanying:
 > *Prionoplus reticularis* White (Coleoptera: Cerambycidae).
 
 ## Data availability
-The raw flight-mill CSV files, morphological measurements, and metadata required to run this pipeline are available from the corresponding author on request. Once received, place them in the data/ directory following the layout described below.
+The raw flight-mill CSV files, morphological measurements, and metadata required to run this pipeline are available from Zenodo (10.5281/zenodo.20772120), place them in the data/ directory following the layout described below.
 
 ## Software
 
@@ -51,6 +51,7 @@ source("01_clean_flightmill.R")   # produces data/df_flightmill_output.RDS
 source("02_allometry.R")          # Table 1, Table 2, Figure 4
 source("03_flight_models.R")      # Table 3, Figure 5 (uses objects from 02)
 source("4_tables.R")              # formatted .docx tables (uses objects from 02 & 03)
+source("repeatability.R")         # Run repeatability analysis
 ```
 
 ## What each script does
@@ -109,6 +110,10 @@ be present in the session. Outputs:
 - `output/tables/table3_flight_glm.docx` (contains Table 3 and Table 3b,
   the companion model-fit statistics)
 
+### `repeatability.R`
+
+Repeated trait measurements (three measurements of 20 individuals) used to estimate measurement repeatability.
+
 ## Expected directory layout
 
 ```
@@ -117,14 +122,17 @@ project/
 │   ├── 01_clean_flightmill.R
 │   ├── 02_allometry.R
 │   ├── 03_flight_models.R
-│   └── 4_tables.R
+│   ├── 4_tables.R
+│   └── repeatability.R
 ├── data/
-│   ├── df_flightmill_output.RDS         (created by 01)
+│   ├── df_flightmill_output.RDS         (created by 01_clean_flightmill.R)
 │   ├── raw/
 │   │   ├── csvFiles/                    (nightly flight-mill CSVs)
-│   │   └── huhuFlightMillMetaData.csv
+│   │   ├── huhuFlightMillMetaData.csv
+│   │   └── README.txt                    (describes the flightmill files creation and format)
 │   └── allometry/
 │       ├── measurements.csv
+│       ├── repeatabilityLong.csv
 │       └── wing_dimensions.csv
 └── output/
     ├── dimorph_summary_table.csv        (Table 1, descriptives)
