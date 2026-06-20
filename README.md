@@ -1,5 +1,7 @@
 # Code for Birrell, Walker & Holwell — *Prionoplus reticularis* flight & allometry
 
+[![DOI](https://zenodo.org/badge/1260013339.svg)](https://doi.org/10.5281/zenodo.20768335)
+
 R code accompanying:
 
 > Birrell, N. W., Walker, L. A., & Holwell, G. I. Sexual dimorphism,
