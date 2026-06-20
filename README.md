@@ -9,7 +9,7 @@ R code accompanying:
 > *Prionoplus reticularis* White (Coleoptera: Cerambycidae).
 
 ## Data availability
-The raw flight-mill CSV files, morphological measurements, and metadata required to run this pipeline are available from Zenodo (10.5281/zenodo.20772120), place them in the data/ directory following the layout described below.
+The raw flight-mill CSV files, morphological measurements, and metadata required to run this pipeline are available from [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20772120.svg)](https://doi.org/10.5281/zenodo.20772120), place them in the data/ directory following the layout described below.
 
 ## Software
 
