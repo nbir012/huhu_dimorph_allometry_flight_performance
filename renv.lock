@@ -4245,6 +4245,35 @@
       "Author": "Thomas Lin Pedersen [cre, aut] (ORCID: <https://orcid.org/0000-0002-5147-4711>)",
       "Repository": "https://packagemanager.posit.co/cran/latest"
     },
+    "pbapply": {
+      "Package": "pbapply",
+      "Version": "1.7-4",
+      "Source": "Repository",
+      "Type": "Package",
+      "Title": "Adding Progress Bar to '*apply' Functions",
+      "Date": "2025-07-19",
+      "Authors@R": "c(person(given = \"Peter\", family = \"Solymos\", comment = c(ORCID = \"0000-0001-7337-1740\"), role = c(\"aut\", \"cre\"), email = \"psolymos@gmail.com\"), person(given = \"Zygmunt\", family = \"Zawadzki\", role = \"aut\", email = \"zygmunt@zstat.pl\"), person(given = \"Henrik\",  family = \"Bengtsson\",  role = \"ctb\", email = \"henrikb@braju.com\"), person(\"R Core Team\", role = c(\"cph\", \"ctb\")))",
+      "Maintainer": "Peter Solymos <psolymos@gmail.com>",
+      "Description": "A lightweight package that adds progress bar to vectorized R functions ('*apply'). The implementation can easily be added to functions where showing the progress is useful (e.g. bootstrap). The type and style of the progress bar (with percentages or remaining time) can be set through options. Supports several parallel processing backends including mirai and future.",
+      "Depends": [
+        "R (>= 3.2.0)"
+      ],
+      "Imports": [
+        "parallel"
+      ],
+      "Suggests": [
+        "shiny",
+        "future",
+        "future.apply"
+      ],
+      "License": "GPL (>= 2)",
+      "URL": "https://github.com/psolymos/pbapply, https://peter.solymos.org/pbapply/",
+      "BugReports": "https://github.com/psolymos/pbapply/issues",
+      "NeedsCompilation": "no",
+      "Author": "Peter Solymos [aut, cre] (ORCID: <https://orcid.org/0000-0001-7337-1740>), Zygmunt Zawadzki [aut], Henrik Bengtsson [ctb], R Core Team [cph, ctb]",
+      "Repository": "https://packagemanager.posit.co/cran/latest",
+      "Encoding": "UTF-8"
+    },
     "pbkrtest": {
       "Package": "pbkrtest",
       "Version": "0.5.5",
@@ -5280,6 +5309,40 @@
       "Author": "Kirill Müller [aut, cre] (ORCID: <https://orcid.org/0000-0002-1416-3412>)",
       "Maintainer": "Kirill Müller <kirill@cynkra.com>",
       "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "rptR": {
+      "Package": "rptR",
+      "Version": "0.9.23",
+      "Source": "Repository",
+      "Title": "Repeatability Estimation for Gaussian and Non-Gaussian Data",
+      "Depends": [
+        "R (>= 3.2.1)"
+      ],
+      "Date": "2025-04-29",
+      "Authors@R": "c( person(\"Martin\", \"Stoffel\", email = \"martin.adam.stoffel@gmail.com\", role = c(\"aut\", \"cre\")), person(\"Shinichi\", \"Nakagawa\", role = \"aut\"), person(\"Holger\", \"Schielzeth\", role = \"aut\"))",
+      "Description": "Estimating repeatability (intra-class correlation) from Gaussian, binary, proportion and Poisson data.",
+      "License": "MIT + file LICENSE",
+      "Imports": [
+        "stats",
+        "lme4",
+        "parallel (>= 3.1.2)",
+        "pbapply"
+      ],
+      "Suggests": [
+        "testthat",
+        "knitr",
+        "rmarkdown",
+        "covr",
+        "tibble"
+      ],
+      "RoxygenNote": "7.3.2",
+      "VignetteBuilder": "knitr",
+      "URL": "https://github.com/mastoffel/rptR",
+      "BugReports": "https://github.com/mastoffel/rptR/issues",
+      "NeedsCompilation": "no",
+      "Author": "Martin Stoffel [aut, cre], Shinichi Nakagawa [aut], Holger Schielzeth [aut]",
+      "Maintainer": "Martin Stoffel <martin.adam.stoffel@gmail.com>",
+      "Repository": "CRAN"
     },
     "rstatix": {
       "Package": "rstatix",
